@@ -1,4 +1,4 @@
-package com.caiofpimentel.model;
+package com.caiofpimentel.servidorpublico.model;
 
 public record ServidorPublico( 
     
