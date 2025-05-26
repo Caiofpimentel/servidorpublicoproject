@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.swing.JOptionPane;
-import javax.swing.event.ListDataListener;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,6 +12,8 @@ import org.springframework.context.annotation.Configuration;
 
 import com.caiofpimentel.servidorpublico.model.ServidorPublico;
 import com.caiofpimentel.servidorpublico.service.ServidorPublicoService;
+
+import jakarta.annotation.PostConstruct;
 
 
 
@@ -25,7 +27,7 @@ public class ServidorpublicoApplicationRunner implements CommandLineRunner{
        
         this.servidorService = servidorService;
     }
-
+    @PostConstruct
     public void listAll() {
         // This method can be used to list all servidores publicos
        List<ServidorPublico> servidorespublicos = servidorService.listAll();
@@ -38,7 +40,7 @@ public class ServidorpublicoApplicationRunner implements CommandLineRunner{
 
        
     }
-
+    @PostConstruct
     public void listByMatricula() {
         // This method can be used to find a servidor publico by matricula
         Long matricula = Long.parseLong(JOptionPane.showInputDialog("Digite a matrícula do servidor público:"));
